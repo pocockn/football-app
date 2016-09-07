@@ -1,0 +1,24 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <h1>Teams</h1>
+    <div class="row">
+      {{#each model as |team|}}
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{team.name}}</h3>
+            </div>
+            <div class="panel-body">
+              <p>Team Info</p>
+            </div>
+            <div class="panel-footer text-right">
+              {{#link-to 'team.edit' team.id class='btn btn-info btn-xs'}}Edit Team{{/link-to}}
+              <button class="btn btn-danger btn-xs" {{action 'deleteTeam' team}}>Delete</button>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    {{#link-to 'team.new' class='btn btn-success btn-md' }}Add Team{{/link-to}}
+  </div>
+</div>
