@@ -9,7 +9,7 @@ export default Ember.Route.extend({
   actions: {
 
     saveTeam(newTeam) {
-      newTeam.save().then(() => this.transitionsTo('team'));
+      newTeam.save().then(() => this.transitionTo('team'));
     },
 
     willTransition(transition) {
