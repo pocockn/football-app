@@ -1,27 +1,10 @@
-<!-- app/templates/index.hbs -->
-<div class="jumbotron text-center">
-    <h1>Add Team</h1>
-
-    <br/><br/>
-
-    <div class="form-horizontal form-group form-group-lg row">
-        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
-            {{input type="text" value=model.name class="form-control" placeholder="Team Name" autofocus="autofocus"}}
-        </div>
-        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
-            {{input type="text" value=model.player.name class="form-control" placeholder="Player Name" autofocus="autofocus"}}
-        </div>
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-            <button class="btn btn-primary btn-lg btn-block" {{action 'saveTeam' model}}>Add Team</button>
-        </div>
-
-    </div>
-
-    {{#if responseMessage}}
-      <div class="alert alert-success">{{responseMessage}}</div>
-    {{/if}}
-
-
-    <br/><br/>
-
+<div class="form-horizontal form-group form-group-lg row">
+  <div class="col-md-6">
+    {{team-single-form single-team=model buttonLabel='Add Team' action='saveTeam' }}
+  </div>
+  <div class="col-md-6">
+    {{#team-single single-team=model}}
+      <br/>
+    {{/team-single}}
+  </div>
 </div>
