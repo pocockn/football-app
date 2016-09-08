@@ -6,6 +6,17 @@ export default Ember.Route.extend({
     return this.store.findRecord('team', params.team_id);
   },
 
+  setupController(controller, model) {
+    this._super(controller, model);
+
+    controller.set('title', 'Edit Team');
+    controller.set('buttonLabel', 'Save changes');
+  },
+
+  renderTemplate() {
+    this.render('team/form');
+  },
+
   actions: {
 
     saveTeam(newTeam) {
@@ -16,7 +27,7 @@ export default Ember.Route.extend({
 
       let model = this.controller.get('model');
 
-      if(model.get('hasDirtyAttributes')) {
+      if (model.get('hasDirtyAttributes')) {
         let confirmation = confirm("Your changes havent been saved yet, would you like to save them?");
 
         if (confirmation) {

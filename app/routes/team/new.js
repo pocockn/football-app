@@ -6,6 +6,17 @@ export default Ember.Route.extend({
    return this.store.createRecord('team');
  },
 
+ setupController: function (controller, model) {
+   this._super(controller, model);
+
+   controller.set('title', 'Create a new team');
+   controller.set('buttonLabel', 'Create');
+ },
+
+ renderTemplate() {
+   this.render('team/form');
+ },
+
   actions: {
     saveTeam(newTeam) {
       newTeam.save().then(() => this.transitionTo('team'));
@@ -17,5 +28,5 @@ export default Ember.Route.extend({
           this.controller.get('model').rollbackAttributes();
         }
     }
-  
+
 });
