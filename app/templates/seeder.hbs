@@ -4,3 +4,21 @@
   <div class="col-md-4">{{number-box title="Teams" number=teams.length}}</div>
   <div class="col-md-4">{{number-box title="Players" number=players.length}}</div>
 </div>
+
+{{seeder-block
+    sectionTitle='Teams'
+    counter=teamsCounter
+    generateAction='generateTeams'
+    deleteAction='deleteTeams'
+    createReady=teamDone
+    deleteReady=teamDelDone
+}}
+
+{{seeder-block
+    sectionTitle='Players'
+    counter=playerCounter
+    generateAction='generatePlayers'
+    deleteAction='deletePlayers'
+    createReady=playerDone
+    deleteReady=playerDelDone
+}}
