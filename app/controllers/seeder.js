@@ -29,20 +29,18 @@ export default Ember.Controller.extend({
 
       for(let i=0; i < counter; i++) {
         const isTheLast = i === counter-1;
-        const newPlayer = this._saveRandomPlayer(isTheLast);
+        const newPlayer = this._selectRandomTeam(isTheLast);
 
-        this.generateSomePlayers(newPlayer);
+        this._generateSomePlayers(newPlayer);
       }
     },
 
     deletePlayers() {
-        this.destroyAll(this.get('players'));
+        this._destroyAll(this.get('players'));
         // Data down via seeder-block to fader-label that we ready to show the label
         this.set('playerDelDone', true);
     }
   },
-
-  // private methods
 
   _saveRandomTeam(isLast) {
     const randomTeam = this.store.createRecord('team').randomize();
@@ -55,7 +53,7 @@ export default Ember.Controller.extend({
     });
   },
 
-  generateSomePlayers(player) {
+  _generateSomePlayers(player) {
     const playerCounter = Faker.random.number(10);
 
     for (let j=0; j < playerCounter; j++) {

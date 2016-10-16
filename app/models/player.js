@@ -3,10 +3,10 @@ import Faker from 'faker';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
-  team: DS.belongsTo('team'),
+  teams: DS.hasMany('team'),
 
   randomize(team) {
-    this.set('name', Faker.name.findName());
+    this.set('name', Faker.company.companyName());
     this.set('team', team);
     return this;
   }
