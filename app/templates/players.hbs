@@ -7,12 +7,10 @@
       <th>Team</th>
     </tr>
   </thead>
-  <body>
     {{#each model as |player|}}
       <tr>
         <td>{{player.name}}</td>
-        <td>{{player.teams}}</td>
+        <td>{{player.team.name}}</td>
       </tr>
-      {{/each}}
-  </body>
+    {{/each}}
 </table>

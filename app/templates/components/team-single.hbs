@@ -4,6 +4,18 @@
   </div>
   <div class="panel-body">
     <p>Team Info</p>
+    <p>Players</p>
+    <ul class="list-group">
+      {{# if (gt single-team.players.length 0)}}
+        {{#each single-team.players as |player|}}
+          <li class="list-group-item">
+            {{player.name}}
+          </li>
+        {{/each}}
+      {{else}}
+        <i>This team currently has no players</i>
+      {{/if}}
+    </ul>
   </div>
   <div class="panel-footer text-right">
     {{yield}}
