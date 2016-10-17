@@ -9,7 +9,8 @@
       {{# if (gt single-team.players.length 0)}}
         {{#each single-team.players as |player|}}
           <li class="list-group-item">
-            {{player.name}}
+            {{player.name}}<br />
+            <b>Goals</b> : <i>{{player.goals}}</i>
           </li>
         {{/each}}
       {{else}}
