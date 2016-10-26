@@ -11,6 +11,8 @@ export default DS.Model.extend({
     this.set('goals', Faker.random.number());
     this.set('team', team);
     return this;
-  }
+  },
+
+  isNotValid: Ember.computed.empty('name'),
 
 });

@@ -1,6 +1,8 @@
 <div class="form-horizontal form-group form-group-lg row">
   <div class="col-md-6">
-    {{team-single-form single-team=model buttonLabel='Add Team' action='saveTeam' }}
+    {{team-single-form value=model buttonLabel='Add Team' action='saveTeam'}}
+    {{input type="text" value=model.name class="form-control" placeholder="Name of team"}}
+     <button type="submit" class="btn btn-default" {{action 'saveTeam' model}}>Add to library list</button>
   </div>
   <div class="col-md-6">
     {{#team-single single-team=model}}
@@ -8,4 +10,3 @@
     {{/team-single}}
   </div>
 </div>
-#

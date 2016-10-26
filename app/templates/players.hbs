@@ -7,10 +7,26 @@
       <th>Team</th>
     </tr>
   </thead>
+  <tbody>
     {{#each model as |player|}}
       <tr>
-        <td>{{player.name}}</td>
+        <td>
+          {{#if player.isEditing}}
+          <form {{action 'savePlayer' player on='submit'}} class="form-inline">
+            <div class="input-group">
+              {{input value=player.name class="form-control"}}
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-success" disabled={{player.isNotValid}}>Save</button>
+                <button class="btn btn-danger" {{action 'cancelPlayerEdit' player}}>Cancel</button>
+              </div>
+            </div>
+          </form>
+          {{else}}
+            <span {{action 'editPlayer' player}}>{{player.name}}</span>
+          {{/if}}
+        </td>
         <td>{{player.team.name}}</td>
       </tr>
     {{/each}}
+  </tbody>
 </table>
